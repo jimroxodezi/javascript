@@ -19,11 +19,11 @@
     A promise is a wrapper for a value that is unknown right
     now but will resolve to a value in the future.
 */
-const promise = new Promise(
-    (resolve, reject) => {
-        // do some computation
-    }
-);
+// const promise = new Promise(
+//     (resolve, reject) => {
+//         // do some computation
+//     }
+// );
 
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -39,8 +39,28 @@ function getRandomBool() {
     return Math.random() < 5;
 }
 
-myPromise.then((message) => {
-    console.log(`the promise returned ${message}`);
-}).catch((message) => {
-    console.log(`the promise returned ${message}`);
-});
+// myPromise.then((message) => {
+//     console.log(`the promise returned ${message}`);
+// }).catch((message) => {
+//     console.log(`the promise returned ${message}`);
+// });
+
+// the await keyword is used to wait for a promise
+// to resolve. Used with async promise.
+// const myPromise1 = async ((resolve, reject) => {
+//     const getRandomBool = () => {
+//         return Math.random < 5;
+//     }
+
+//     setTimeout(() => {
+//         if (getRandomBool()){
+//             resolve("resolved");
+//         } else {
+//             reject("rejected!");
+//         }
+//     }, 1000);
+// });
+
+
+// const message = await myPromise1;
+// console.log(`my promise returned ${message}`);
