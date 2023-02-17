@@ -33,7 +33,7 @@ fs.readFile("./data.txt", (err, data) => {
 // });
 
 // IO Polling
-data = fetch("https://google.com");
+data = fetch("https://google.com", {method: 'GET'});
 process.stdout.write("2: System Polling" + data + "\n");
 
 // 3. setImmediate

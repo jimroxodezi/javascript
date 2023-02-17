@@ -26,41 +26,26 @@
 // );
 
 const myPromise = new Promise((resolve, reject) => {
+    let time = Math.floor(10000 * Math.random() + 1); //'any random number between 1000-9000?
+    console.log(time);
     setTimeout(() => {
-        if (getRandomBool()){
-            resolve("resolved");
+        if (time < 6000){
+            resolve("came in on time");
         } else {
-            reject("rejected!");
+            reject("oops! came in too late");
         }
-    }, 1000);
+    }, time);
 });
 
-function getRandomBool() {
-    return Math.random() < 5;
-}
+console.log(myPromise); // Promise {<pending>}
 
-// myPromise.then((message) => {
-//     console.log(`the promise returned ${message}`);
-// }).catch((message) => {
-//     console.log(`the promise returned ${message}`);
-// });
+myPromise
+    .then((message) => {
+        console.log(myPromise);
+        console.log(`the promise returned ${message}`);
+    })
+    .catch((errMessage) => {
+        console.log(myPromise);
+        console.log(`the promise returned ${errMessage}`);
+    });
 
-// the await keyword is used to wait for a promise
-// to resolve. Used with async promise.
-// const myPromise1 = async ((resolve, reject) => {
-//     const getRandomBool = () => {
-//         return Math.random < 5;
-//     }
-
-//     setTimeout(() => {
-//         if (getRandomBool()){
-//             resolve("resolved");
-//         } else {
-//             reject("rejected!");
-//         }
-//     }, 1000);
-// });
-
-
-// const message = await myPromise1;
-// console.log(`my promise returned ${message}`);
