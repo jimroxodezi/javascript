@@ -57,9 +57,16 @@ setTimeout(() => {
 
 ### I/O queue.
 Most of the async methods for perform i/o operations from the built-in modules queue the callback
-function in the I/O queue. e.g ```fs.readFile()```. I/O queue callbacks are executed after timer queue callbacks.
+function in the I/O queue. e.g ```fs.readFile()```. I/O queue callbacks are executed after timer queue callbacks. I/O polling events are polled and callback functions are added to the I/O queue only after the I/O is complete.
 
-
+### Check Queue.
+To queue a function into the check queue, we can use the ```setImmediate()``` function.
+```js
+setImmediate(() => {
+    console.log("setImmediate function for check queue");
+});
+```
+check queue callbacks are executed after microtask queues callbacks, timer queue callbacks and I/O queue callbacks are executed.
 
 
 ## References.
