@@ -34,6 +34,7 @@ If there are more callbacks to be processed, the event loop is kept alive for on
     console.log("this is process.nextTick()");
  });
  ```
+ ```process.nextTick()``` should be used with caution as it can cause the rest of the event loop to starve due to its high priority. If you endlessly or carelessly call ```process.nextTick()```, the control will never make it past the microtask queue.
 
 2. Promise queue. Any API or function that returns a promise.
 
@@ -44,7 +45,7 @@ Promise.resolve().then(() => {
 ```
 
 ### Timer queues.
-They are executed in FIFO order.
+They are executed in FIFO order...although the timer queue is a min heap data structure.
 1. setTimeout queue.
 ```js
 setTimeout(() => {
@@ -54,3 +55,11 @@ setTimeout(() => {
 
 2. setInterval queue.
 
+### I/O queue.
+Most of the async methods for perform i/o operations from the built-in modules queue the callback
+function in the I/O queue. e.g ```fs.readFile()```. I/O queue callbacks are executed after timer queue callbacks.
+
+
+
+
+## References.
