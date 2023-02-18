@@ -1,5 +1,5 @@
 # Node Event Loop
-It as a C program and is part of libuv. It is a design pattern that ochestrates or co-ordinates the execution of synchronous and asynchronous code in Node.js.
+It as a C program and is part of libuv. It is a design pattern that ochestrates or co-ordinates the execution of synchronous and asynchronous code in Node.js in six different queues.
 
 ## Q & A
 1. Whenever an async task completes in libuv, at what point does Nodejs decide to run the associated callback function on the call stack? Callback functions are executed only when the callstack is empty. The normal flow of execution will not be interrupted to run a callback function.
@@ -27,6 +27,7 @@ If there are more callbacks to be processed, the event loop is kept alive for on
 ## Phases.
 
 ### Microtask Queues.
+Microtask queues are executed in between each queue and also in between each callback execution in the timer and check queues.
 
 1. nextTick queue.
  ```js
