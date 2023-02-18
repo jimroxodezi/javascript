@@ -43,4 +43,14 @@ Promise.resolve().then(() => {
 });
 ```
 
+### Timer queues.
+They are executed in FIFO order.
+1. setTimeout queue.
+```js
+setTimeout(() => {
+    console.log("this is a timer callback");
+});
+```
+
+2. setInterval queue.
 
