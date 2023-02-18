@@ -23,3 +23,24 @@ User written sychronous JavaScript code takes priority over async code that the 
 
 If there are more callbacks to be processed, the event loop is kept alive for one more run and the same steps are repeated. On the otherhand, if all callbacks are executed and there is no more code to process, the event loop exits.
 
+
+## Phases.
+
+### Microtask Queues.
+
+1. nextTick queue.
+ ```js
+ process.nextTick(() => {
+    console.log("this is process.nextTick()");
+ });
+ ```
+
+2. Promise queue. Any API or function that returns a promise.
+
+```js
+Promise.resolve().then(() => {
+    console.log("this is a promise");
+});
+```
+
+
