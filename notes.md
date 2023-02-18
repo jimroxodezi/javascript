@@ -68,5 +68,7 @@ setImmediate(() => {
 ```
 check queue callbacks are executed after microtask queues callbacks, timer queue callbacks and I/O queue callbacks are executed.
 
+### Close queue.
+Close queue callbacks are executed after all other queues callbacks in a given iteration of the event loop are executed. Callbacks are added to the close queue by adding event listeners to close event.
 
 ## References.
