@@ -1,10 +1,11 @@
 ## Learning JavaScript
 
-My JavaScript learning routine for fullstack web development
+My JavaScript learning routine for fullstack web development.
 
 ### Stuffs to Learn.
 
-- [x] The Event Loop
+- [x] The Nodejs Event Loop
+- [ ] Browser JavaScript Event Loop
 - [ ] Promises
 - [ ] Events.
 
