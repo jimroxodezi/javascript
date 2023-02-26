@@ -1,5 +1,17 @@
+# Nodejs
+
+A programming paradigm is an approach to programming a computer based on a mathematical theory or a coherent set of principles. Each paradigm supports a set of concepts that makes it the best for a certain kind of problem.
+
+### But why the above?
+
+Nodejs uses the event driven approach of programming (event-driven paradigm) such that:
+
+- No function should perform direct I/O, to receive data from disk, network or another process, there must be a callback.
+- the API should be familiar to client-side JS and Unix programming interface.
+
+
 # Node Event Loop
-It as a C program and is part of libuv. It is a design pattern that ochestrates or co-ordinates the execution of synchronous and asynchronous code in Node.js in six different queues.
+It as a C program and is part of libuv. It is a design pattern that ochestrates or co-ordinates the execution of synchronous and asynchronous code in Node.js in six different queues. All JavaScript, V8, and the event loop run in one thread, called the main thread.
 
 ## Q & A
 1. Whenever an async task completes in libuv, at what point does Nodejs decide to run the associated callback function on the call stack? Callback functions are executed only when the callstack is empty. The normal flow of execution will not be interrupted to run a callback function.
