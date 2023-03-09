@@ -62,7 +62,38 @@ function* mapper(iterable, mapFn) {
 // console.log(taker.next());
 // console.log(taker.next());
 
-let taken = [...take(20, infinityAndBeyond())];
-console.log(taken);
-const Squares = [...take(20, mapper(infinityAndBeyond(), (x) => x * x))];
-console.log(Squares);
+// let taken = [...take(20, infinityAndBeyond())];
+// console.log(taken);
+// const Squares = [...take(20, mapper(infinityAndBeyond(), (x) => x * x))];
+// console.log(Squares);
+
+// function* listener() {
+//     console.log("listening.......");
+//     while(true) {
+//         let msg = yield;
+//         console.log(`message: ${msg}`);
+//     }
+// }
+
+// l = listener();
+// l.next("are you there?");
+// l.next("how about you?");
+// l.next("blah blah");
+
+// generators as state machines
+function* bankAccount() {
+    let balance = 0;
+
+    while (balance >= 0) {
+        balance += yield balance;
+    }
+
+    return "bankrupt";
+}
+
+
+let acct = bankAccount();
+console.log(acct.next());
+console.log(acct.next(50));
+console.log(acct.next(-10));
+console.log(acct.next(-60));
