@@ -19,10 +19,24 @@ process.on("SIGINT", () => {
 // by different objects that detects them (emits, in JavaScript speak)
 // and callback functions (event listeners) are executed
 // when these events are emitted.
-
 const exec = require('child_process').exec;
 
 exec("pwd", (err, output) => {
     if (err) console.error;
     console.log(output);
+});
+
+
+const spawn = require('child_process').spawn;
+
+const cat = spawn('cat');
+
+cat.stdin.write("Hello");
+
+setTimeout(() => {
+    cat.stdin.end("World");
+}, 2000);
+
+cat.stdout.on('data', (data) => {
+    console.log(data.toString('utf-8'));
 });
