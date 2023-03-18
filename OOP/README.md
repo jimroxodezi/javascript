@@ -9,4 +9,32 @@ According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/I
 
 > JavaScript objects are dynamic "bags" of properties (referred to as own properties).
 
-Crazy definition but very intuitive definition. :fire:
+Crazy definition but very intuitive. :fire:
+
+
+```js
+function Box(value) {
+  this.value = value;
+}
+
+Box.prototype.getValue = function () {
+  return this.value;
+};
+
+const boxes = [new Box(1), new Box(2), new Box(3)];
+
+```
+Classes are just syntatic sugar over constructor functions. The code above is semantically equivalent to the code below.
+
+```js
+class Box {
+  constructor(value) {
+    this.value = value;
+  }
+
+  getValue() {
+    return this.value;
+  }
+}
+```
+
