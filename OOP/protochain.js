@@ -1,3 +1,7 @@
+// JavaScript is a prototype-based language — an object's 
+// behaviors are specified by its own properties and its prototype's properties.
+
+
 // let animal = {
 //     eats: true,
 //     walks:() => { return `every animal walks`}
