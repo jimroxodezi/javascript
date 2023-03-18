@@ -8,4 +8,5 @@ According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/I
 `obj.__proto__` is same as `obj.[[prototype]]` which also corresponds to `Object.getPrototype(obj)`. `func.prototype` specifies all the `[[Prototype]]` to be assigned to all instances of objects created by the given function when used as a constructor.
 
 > JavaScript objects are dynamic "bags" of properties (referred to as own properties).
-Crazy definition but very intuitive [:)]
+
+Crazy definition but very intuitive definition. :fire:
