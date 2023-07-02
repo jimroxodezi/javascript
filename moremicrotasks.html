@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">Click Me</button>
+    <button id="btn2">Programmatic Click</button>
+
+    <script>
+        const scheduleWork = () => {
+            Promise.resolve("#1 m1").then(x => console.log(x));
+            Promise.resolve("#1 m2").then(x => console.log(x));
+            setTimeout(() => console.log("#1 t1"), 0);
+            setTimeout(() => {
+                Promise.resolve("#1 m3").then(x => console.log(x));
+                Promise.resolve("#1 m4").then(x => console.log(x));
+                Promise.resolve("#1 m5").then(x => console.log(x));
+                Promise.resolve().then(() => Promise.resolve("#1 m6").then(x => console.log(x)));    
+            }, 0);
+            setTimeout(() => console.log("#1 t2"), 0);
+            setTimeout(() => console.log("#1 t3"), 0);
+            console.log("#1 Hello from main thread");
+        };
+
+        const scheduleWorkAgain = () => {
+            Promise.resolve("#2 m1").then(x => console.log(x));
+            Promise.resolve("#2 m2").then(x => console.log(x));
+            setTimeout(() => console.log("#2 t1"), 0);
+            setTimeout(() => {
+                Promise.resolve("#2 m3").then(x => console.log(x));
+                Promise.resolve("#2 m4").then(x => console.log(x));
+                Promise.resolve("#2 m5").then(x => console.log(x));
+                Promise.resolve().then(() => Promise.resolve("#2 m6").then(x => console.log(x)));    
+            }, 0);
+            setTimeout(() => console.log("#2 t2"), 0);
+            setTimeout(() => console.log("#2 t3"), 0);
+            console.log("#2 Hello from main thread");
+        };
+
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+
+        btn1.addEventListener("click", () => {
+            scheduleWork();
+            scheduleWorkAgain();
+        });
+
+        btn2.addEventListener("click", () => { btn1.click(); });
+    </script>
+</body>
+</html>

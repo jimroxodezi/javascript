@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+    <script>
+        const scheduleWork = () => {
+            setTimeout(() => console.log("Time out 1"),0);
+            setTimeout(() => console.log("Time out 2"),0);
+            setTimeout(() => Promise.resolve("Microtask 1").then(x => console.log(x)), 0);
+            setTimeout(() => Promise.resolve("Microtask 1").then(x => console.log(x)), 0);
+            setTimeout(() => setTimeout(() => Promise.resolve("Nested Microtask").then(x => console.log(x)), 0), 0);
+            // Promise.resolve().then(() => console.log("Microtask 1"));
+            // Promise.resolve().then(() => console.log("Microtask 2"));
+        };
+
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", scheduleWork);
+    </script>
+</body>
+</html>

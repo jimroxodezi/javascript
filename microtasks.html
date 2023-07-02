@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <script>
+        const tasksStuff = () => {
+            Promise.resolve("m1").then(x => console.log(x));
+            Promise.resolve("m2").then(x => console.log(x));
+            setTimeout(() => console.log("t1"), 0);
+            setTimeout(() => {
+                Promise.resolve("m3").then(x => console.log(x));
+                Promise.resolve("m4").then(x => console.log(x));
+                Promise.resolve("m5").then(x => console.log(x));
+                Promise.resolve().then(() => Promise.resolve("m6").then(x => console.log(x)));    
+            }, 0);
+            setTimeout(() => console.log("t2"), 0);
+            setTimeout(() => console.log("t3"), 0);
+        };
+
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", tasksStuff);
+    </script>
+</body>
+</html>
